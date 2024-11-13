@@ -30,8 +30,8 @@ class Google {
     private $seoData;
 
     function __construct($File, $Link) {
-        $this->File = strip_tags(trim($File));
-        $this->Link = strip_tags(trim($Link));
+        $this->File = $File !== null ? strip_tags(trim($File)) : '';
+        $this->Link = $Link !== null ? strip_tags(trim($Link)) : '';
     }
 
     /**

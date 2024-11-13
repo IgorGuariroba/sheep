@@ -21,7 +21,8 @@ class Link {
     private $Google;
     
     function __construct() {
-        $this->Local = strip_tags(trim(filter_input(INPUT_GET, 'url', FILTER_DEFAULT)));
+        $url = filter_input(INPUT_GET, 'url');
+        $this->Local = $url !== null ? strip_tags(trim($url)) : '';
         $this->Local = ($this->Local ? $this->Local : 'index');
         $this->Local = explode('/', $this->Local);
         $this->File = (isset($this->Local[0]) ? $this->Local[0] : 'index');
