@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-apache
+    ports:
+      - "8080:80"
+      - "9003:9003"  # Porta padrão do Xdebug
+    volumes:
+      - ./:/var/www/html
+      - ./php.ini:/usr/local/etc/php/php.ini  # Monta o arquivo php.ini no container
